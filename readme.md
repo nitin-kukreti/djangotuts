@@ -1,0 +1,1 @@
+## to create new app type py manage.py startapp (app__name)
