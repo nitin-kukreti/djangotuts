@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    {% load static %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('http://nitinsite.com/static/car/registrationbaground.jpg') no-repeat;
+        }
+
+        .formitem {
+            padding: 2px;
+            margin: 10px;
+            width: 230px;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 20px 20px 20px 20px;
+            padding: 0px 30px;
+            align-items: center;
+            background-color: rgb(236, 96, 96);
+        }
+
+        .formbtn {
+            border-radius: 30px;
+            outline: none;
+            border: none;
+            padding: 20px;
+        }
+
+        .formbtn:hover {
+            background-color: green;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            border-radius: 30px;
+            outline: none;
+            border: none;
+            padding: 20px;
+        }
+        .formcontainer{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body >
+    {% if message %}
+    <h1 id="message">{{message}}</h1>
+    {% else %}
+    {% endif %}
+    <div class="formcontainer">
+
+    
+    <form method="POST" class="form" enctype='multipart/form-data'>
+        <h1 style="font-size: 30px;font-weight: 900;color:white;">car registration</h1>
+        {% csrf_token %}
+
+        <input type="text" name="company" placeholder="company" class="formitem" required>
+        <br>
+        <input type="file" name="image" class="formitem" required>
+        <br>
+        <input type="text" name="modelno" placeholder="model no" class="formitem" required>
+        <br>
+        <input type="text" name="engine" placeholder="engine" class="formitem" required>
+        <br>
+        <input type="text" name="about" placeholder="about" class="formitem" required>
+        <br>
+        <input type="text" name="millage" placeholder="millage" class="formitem" required>
+        <br>
+        <input type="number" name="price" placeholder="price" class="formitem" required>
+        <br>
+
+        <input type="number" name="power" placeholder="power" class="formitem">
+        <label for="autodrive" style="font-size: 20px;" class="formitem">
+            <input type="checkbox" name="autodrive" id="autodrive"> autodrive
+        </label>
+        <label for="nitro" style="font-size: 20px;" class="formitem">
+            <input type="checkbox" name="nitro" id="nitro"> nitro
+        </label>
+        <label for="sport" style="font-size: 20px;" class="formitem">
+            <input type="checkbox" name="sport" id="sport"> sport
+        </label>
+        <label for="autogear" style="font-size: 20px;" class="formitem">
+            <input type="checkbox" name="autogear" id="autogear"> autogear
+        </label>
+
+        <button type="submit" class="formitem formbtn">submit</button>
+    </form></div>
+    <script>
+        setTimeout(function () {
+            document.getElementById('message').remove()
+        }, 3000)
+    </script>
+</body>
+
+</html>
