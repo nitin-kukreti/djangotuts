@@ -1,45 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        body{
+        body {
             margin: 0;
             padding: 0;
             background-color: antiquewhite;
         }
-    #carcontainer{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .car{
-        background-color: white;
-        padding: 20px;
-        margin: 20px;
-    }
+
+        #carcontainer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .car {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .company {
+            font-size: 30px;
+            font-weight: 900;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <nav style="display: flex;">
 
         </nav>
     </header>
-<div id="carcontainer">
+    <div class="container">
+        <div id="carcontainer">
 
-{% for obj in cars %}
-<a href="detail/{{obj.pk}}">
-<div class="car">
-    <h1>{{obj.company}}</h1>
-      <img src="{{obj.carimage.url}}" alt="no image">
-</div>
-      </a>
-    {% endfor %}
-</div>
-    
+            {% for obj in cars %}
+            <a href="detail/{{obj.pk}}">
+                <div class="car">
+                    <h1 class="company">{{obj.company}}</h1>
+                    <h2 class="model">{{obj.modelno}}</h2>
+                    <img src="{{obj.carimage.url}}" height="200px" width="300px" alt="no image">
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+
 </body>
+
 </html>

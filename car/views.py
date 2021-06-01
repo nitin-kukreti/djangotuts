@@ -33,3 +33,7 @@ def registercar(request):
         mycar.save()  
 
         return render(request,'car/register.html',{"message":"car is registered"})
+
+def detailspage(req,pk):
+    car=Car.objects.get(pk=pk)
+    return render(req,'car/detailcars.html',{"car":car})
