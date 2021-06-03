@@ -6,8 +6,8 @@ class Color(models.Model):
 
     def __str__(self):
         return self.color
+
 class Car(models.Model):
-    carimage=models.ImageField(upload_to="carsimages")
     color=models.ForeignKey(Color,on_delete=models.DO_NOTHING,null=True)
     company=models.CharField(max_length=60)
     modelno=models.CharField(max_length=30)
@@ -21,8 +21,14 @@ class Car(models.Model):
     launchdata=models.DateTimeField(auto_now_add=True)
     price=models.FloatField(max_length=10)
     isSport=models.BooleanField(default=False)
+    def __str__(self):
+            return self.modelno
+
+class Carimage(models.Model):
+    carimage=models.ImageField(upload_to="carsimages") 
+    car=models.ForeignKey(Car,on_delete=models.CASCADE)   
 
     def __str__(self):
-        return self.modelno
+        return self.car.modelno
 
 

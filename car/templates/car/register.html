@@ -56,7 +56,7 @@
     </style>
 </head>
 
-<body >
+<body id="body" >
     {% if message %}
     <h1 id="message">{{message}}</h1>
     {% else %}
@@ -100,6 +100,7 @@
         <button type="submit" class="formitem formbtn">submit</button>
     </form></div>
     <script>
+        
         setTimeout(function () {
             document.getElementById('message').remove()
         }, 3000)
