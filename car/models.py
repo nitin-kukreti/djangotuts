@@ -21,10 +21,15 @@ class Car(models.Model):
     launchdata=models.DateTimeField(auto_now_add=True)
     price=models.FloatField(max_length=10)
     isSport=models.BooleanField(default=False)
+
+    @property
+    def im(self):
+        return self.carimage_set.all()[0].carimage.url
     def __str__(self):
             return self.modelno
 
 class Carimage(models.Model):
+
     carimage=models.ImageField(upload_to="carsimages") 
     car=models.ForeignKey(Car,on_delete=models.CASCADE)   
 
