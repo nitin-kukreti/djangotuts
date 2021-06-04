@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app1',
-    'car'
+    'car.apps.CarConfig'
    
 ]
 CORS_ORIGIN_ALLOW_ALL = True

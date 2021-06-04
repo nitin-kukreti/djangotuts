@@ -25,6 +25,7 @@ class Car(models.Model):
     @property
     def im(self):
         return self.carimage_set.all()[0].carimage.url
+    
     def __str__(self):
             return self.modelno
 
@@ -35,5 +36,7 @@ class Carimage(models.Model):
 
     def __str__(self):
         return self.car.modelno
-
+        
+class Notifiaction(models.Model):
+    pass
 
