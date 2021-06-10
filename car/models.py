@@ -8,7 +8,7 @@ class Color(models.Model):
         return self.color
 
 class Car(models.Model):
-    color=models.ForeignKey(Color,on_delete=models.DO_NOTHING,null=True)
+    color=models.ManyToManyField(Color,null=True)
     company=models.CharField(max_length=60)
     modelno=models.CharField(max_length=30)
     engine=models.CharField(max_length=30)
@@ -36,7 +36,6 @@ class Carimage(models.Model):
 
     def __str__(self):
         return self.car.modelno
-        
-class Notifiaction(models.Model):
-    pass
+
+
 
